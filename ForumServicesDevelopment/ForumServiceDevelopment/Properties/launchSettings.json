@@ -3,16 +3,16 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:59857",
+      "applicationUrl": "http://localhost:4040",
       "sslPort": 0
     }
   },
   "profiles": {
-    "ForumServisesDevelopment": {
+    "ForumServiceDevelopment": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
-      "applicationUrl": "http://localhost:5252",
+      "applicationUrl": "http://localhost:4040",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

@@ -1,4 +1,4 @@
-﻿namespace ForumServisesDevelopment.Data.Models
+﻿namespace ForumServiceDevelopment.Data.Models
 {
 	public class Group
 	{
@@ -8,6 +8,6 @@
 
 		public string Description { get; set; }
 
-		public ICollection<GroupItem> GroupItems { get; }
+		public List<Post> Posts { get; set; } = new List<Post>();
 	}
 }

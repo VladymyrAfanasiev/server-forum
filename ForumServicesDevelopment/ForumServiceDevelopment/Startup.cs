@@ -1,7 +1,8 @@
-﻿using ForumServisesDevelopment.Data;
+﻿using ForumServiceDevelopment.Data;
+using ForumServiceDevelopment.Services;
 using Microsoft.EntityFrameworkCore;
 
-namespace ForumServisesDevelopment
+namespace ForumServiceDevelopment
 {
 	public class Startup
 	{
@@ -18,6 +19,10 @@ namespace ForumServisesDevelopment
 			services.AddDbContext<ForumDatabaseContext>(options =>
 				options.UseSqlServer(connection));
 			services.AddDatabaseDeveloperPageExceptionFilter();
+
+			services.AddControllers();
+
+			services.AddTransient<IGroupService, GroupService>();
 		}
 
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

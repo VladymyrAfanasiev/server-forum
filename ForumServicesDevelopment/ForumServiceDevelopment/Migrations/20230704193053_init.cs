@@ -2,9 +2,9 @@
 
 #nullable disable
 
-namespace ForumServisesDevelopment.Migrations
+namespace ForumServiceDevelopment.Migrations
 {
-    public partial class initial : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -23,7 +23,7 @@ namespace ForumServisesDevelopment.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "GroupItem",
+                name: "Posts",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -34,52 +34,51 @@ namespace ForumServisesDevelopment.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_GroupItem", x => x.Id);
+                    table.PrimaryKey("PK_Posts", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_GroupItem_Groups_GroupId",
+                        name: "FK_Posts_Groups_GroupId",
                         column: x => x.GroupId,
                         principalTable: "Groups",
                         principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
-                name: "Comment",
+                name: "Comments",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Text = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    GroupItemId = table.Column<int>(type: "int", nullable: true)
+                    PostId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Comment", x => x.Id);
+                    table.PrimaryKey("PK_Comments", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Comment_GroupItem_GroupItemId",
-                        column: x => x.GroupItemId,
-                        principalTable: "GroupItem",
+                        name: "FK_Comments_Posts_PostId",
+                        column: x => x.PostId,
+                        principalTable: "Posts",
                         principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Comment_GroupItemId",
-                table: "Comment",
-                column: "GroupItemId");
+                name: "IX_Comments_PostId",
+                table: "Comments",
+                column: "PostId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_GroupItem_GroupId",
-                table: "GroupItem",
+                name: "IX_Posts_GroupId",
+                table: "Posts",
                 column: "GroupId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Comment");
+                name: "Comments");
 
             migrationBuilder.DropTable(
-                name: "GroupItem");
+                name: "Posts");
 
             migrationBuilder.DropTable(
                 name: "Groups");
