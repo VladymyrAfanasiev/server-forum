@@ -1,0 +1,130 @@
+{
+	"info": {
+		"_postman_id": "dad4ecad-e185-4d4e-b21d-3644aef54a26",
+		"name": "AuthorizationService",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25409175"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"UserName\" : \"user\",\r\n    \"password\" : \"12345678\",\r\n    \"email\" : \"user@test.com\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4041/api/authorization/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4041",
+					"path": [
+						"api",
+						"authorization",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"UserName\" : \"user\",\r\n    \"password\" : \"12345678\",\r\n    \"email\" : \"user@test.com\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4041/api/authorization/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4041",
+					"path": [
+						"api",
+						"authorization",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ping",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:4041/api/authorization/ping",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4041",
+					"path": [
+						"api",
+						"authorization",
+						"ping"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJ1c2VyQHRlc3QuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6InVzZXIiLCJuYmYiOjE2ODg2ODI0NjQsImV4cCI6MTY4ODY4MzM2NCwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDA0MSIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0OjQwNDEifQ.cgTzirwSXQjLiBC2yatKCJwvkFHh6ViMWytLmGTk450"
+		}
+	]
+}
