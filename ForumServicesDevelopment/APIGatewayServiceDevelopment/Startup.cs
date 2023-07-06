@@ -1,4 +1,6 @@
-﻿namespace APIGatewayServiceDevelopment
+﻿using APIGatewayServiceDevelopment.Middleware;
+
+namespace APIGatewayServiceDevelopment
 {
 	public class Startup
 	{
@@ -22,6 +24,8 @@
 			}
 
 			app.UseRouting();
+
+			app.UseMiddleware<ErrorHandlerMiddleware>();
 		}
 	}
 }
