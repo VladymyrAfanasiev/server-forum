@@ -1,4 +1,6 @@
-﻿namespace AuthorizationServiceDevelopment.Data.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace AuthorizationServiceDevelopment.Data.Models
 {
 	public enum RoleNames
 	{
@@ -10,10 +12,14 @@
 	{
 		public int Id { get; set; }
 
-		public string Name { get; set; }
+		[Required]
+		public string UserName { get; set; }
 
+		[Required]
 		public string Password { get; set; }
 
+		[EmailAddress]
+		[Required]
 		public string Email { get; set; }
 
 		public RoleNames Role { get; set;}

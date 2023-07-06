@@ -2,5 +2,7 @@
 
 # dependencies
 /ForumServicesDevelopment/.vs
+/ForumServicesDevelopment/AuthorizationServiceDevelopment/bin
+/ForumServicesDevelopment/AuthorizationServiceDevelopment/obj
 /ForumServicesDevelopment/ForumServiceDevelopment/bin
 /ForumServicesDevelopment/ForumServiceDevelopment/obj
