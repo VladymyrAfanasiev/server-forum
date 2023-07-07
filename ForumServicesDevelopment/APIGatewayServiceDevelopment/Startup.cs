@@ -1,4 +1,5 @@
 ﻿using APIGatewayServiceDevelopment.Middleware;
+using APIGatewayServiceDevelopment.Modules.Configurations;
 
 namespace APIGatewayServiceDevelopment
 {
@@ -13,7 +14,9 @@ namespace APIGatewayServiceDevelopment
 
 		public void ConfigureServices(IServiceCollection services)
 		{
-
+			MicroservicesConfigurations microservicesConfigurations = new MicroservicesConfigurations();
+			configuration.Bind("Microservices", microservicesConfigurations);
+			services.AddSingleton(microservicesConfigurations);
 		}
 
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
