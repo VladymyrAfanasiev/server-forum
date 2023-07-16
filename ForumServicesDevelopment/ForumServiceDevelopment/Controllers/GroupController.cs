@@ -2,6 +2,7 @@
 using ForumServiceDevelopment.Models.Comments;
 using ForumServiceDevelopment.Models.Posts;
 using ForumServiceDevelopment.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ForumServiceDevelopment.Controllers
@@ -37,6 +38,7 @@ namespace ForumServiceDevelopment.Controllers
 			return Ok(model);
 		}
 
+		[Authorize]
 		[HttpPut]
 		public IActionResult AddGroup(GroupCreationModel creationModel)
 		{
@@ -57,6 +59,7 @@ namespace ForumServiceDevelopment.Controllers
 			return Ok(model);
 		}
 
+		[Authorize]
 		[HttpPut("{groupId:int}/post")]
 		public IActionResult AddPost(int groupId, PostCreationModel creationModel)
 		{
@@ -65,7 +68,7 @@ namespace ForumServiceDevelopment.Controllers
 			return Ok(model);
 		}
 
-
+		[Authorize]
 		[HttpPut("{groupId:int}/post/{postId:int}/comment")]
 		public IActionResult AddComment(int groupId, int postId, CommentCreationModel creationModel)
 		{

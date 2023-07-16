@@ -4,6 +4,6 @@
 	{
 		public string AuthorizationServiceUrl { get; set; }
 
-		public string ForumServiceUrl { get; set; }
+		public List<string> Routes { get; set; }
 	}
 }

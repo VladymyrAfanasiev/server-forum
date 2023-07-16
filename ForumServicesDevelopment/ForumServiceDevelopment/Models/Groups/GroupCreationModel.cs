@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 using ForumServiceDevelopment.Data.Models;
 
 namespace ForumServiceDevelopment.Models
@@ -16,6 +17,7 @@ namespace ForumServiceDevelopment.Models
 			Description = model.Description;
 		}
 
+		[Required]
 		public string Name { get; set; }
 
 		public string Description { get; set; }

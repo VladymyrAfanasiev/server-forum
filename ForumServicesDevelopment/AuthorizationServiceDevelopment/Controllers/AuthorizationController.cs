@@ -1,7 +1,6 @@
 ﻿using AuthorizationServiceDevelopment.Models.Users;
 using AuthorizationServiceDevelopment.Services;
 using AuthorizationServiceDevelopment.Services.Authentication;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AuthorizationServiceDevelopment.Controllers
@@ -33,7 +32,7 @@ namespace AuthorizationServiceDevelopment.Controllers
 				return Unauthorized();
 			}
 
-			return Ok();
+			return Ok("Registered");
 		}
 
 		[HttpPost("login")]
@@ -55,11 +54,10 @@ namespace AuthorizationServiceDevelopment.Controllers
 			return Ok(userAutorizedModel);
 		}
 
-		[Authorize]
-		[HttpGet("ping")]
-		public IActionResult Ping()
+		[HttpPost("refresh")]
+		public IActionResult Refresh()
 		{
-			return Ok("Authorized");
+			throw new NotImplementedException();
 		}
 	}
 }

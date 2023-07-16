@@ -1,4 +1,5 @@
-﻿using ForumServiceDevelopment.Data.Models;
+﻿using System.ComponentModel.DataAnnotations;
+using ForumServiceDevelopment.Data.Models;
 
 namespace ForumServiceDevelopment.Models.Comments
 {
@@ -11,19 +12,17 @@ namespace ForumServiceDevelopment.Models.Comments
 
 		public CommentCreationModel(Comment model)
 		{
-			Id = model.Id;
 			Text = model.Text;
 		}
 
-		public int Id { get; set; }
 
+		[Required]
 		public string Text { get; set; }
 
 		public Comment ToEntity()
 		{
 			return new Comment
 			{
-				Id = Id,
 				Text = Text
 			};
 		}

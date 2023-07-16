@@ -1,4 +1,5 @@
-﻿using ForumServiceDevelopment.Data.Models;
+﻿using System.ComponentModel.DataAnnotations;
+using ForumServiceDevelopment.Data.Models;
 
 namespace ForumServiceDevelopment.Models.Posts
 {
@@ -15,8 +16,10 @@ namespace ForumServiceDevelopment.Models.Posts
 			Text = model.Text;
 		}
 
+		[Required]
 		public string Name { get; set; }
 
+		[Required]
 		public string Text { get; set; }
 
 		public Post ToEntity()
